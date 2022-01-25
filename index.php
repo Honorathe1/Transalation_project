@@ -64,18 +64,12 @@
           </table>
           </form>
                     <?php
-                       //include("connection.php");
+                       include 'connection.php';
         $name = filter_input(INPUT_POST, 'name');
         $ENGLISH = filter_input(INPUT_POST, 'ENGLISH');
         $KINYARWANDA = filter_input(INPUT_POST, 'KINYARWANDA');
         $FRANCE = filter_input(INPUT_POST, 'FRANCE');
         $KIWAHILE = filter_input(INPUT_POST, 'KISWAHILE');
-$server = "localhost";
-$user= "root";
-$pass = "";
-$db = "language";
-// Create connection
-$conn = new mysqli ($server ,$user ,$pass ,$db);
 if (mysqli_connect_error()){
 die('Connect Error ('. mysqli_connect_errno() .') '
 . mysqli_connect_error());
@@ -92,16 +86,8 @@ echo "Error: ". $sql ."
 $conn->close();
 ?>
                 <?php
-                $server = "localhost";
-$user= "root";
-$pass = "";
-$db = "language";
-// Create connection
-$conn = new mysqli ($server ,$user ,$pass ,$db);
-if (mysqli_connect_error()){
-die('Connect Error ('. mysqli_connect_errno() .') '
-. mysqli_connect_error());
-}
+                include 'connection.php';
+
                 $word = filter_input(INPUT_POST, 'var');
 
            if(isset($_POST['ENGLISH'])) {
@@ -109,7 +95,7 @@ die('Connect Error ('. mysqli_connect_errno() .') '
            $result = mysqli_query($conn, "SELECT  ENGLISH FROM language
     WHERE ENGLISH LIKE '%{$word}%' OR KINYARWANDA LIKE '%{$word}%' OR FRANCE LIKE '%{$word}' OR KISWAHILE LIKE '%{$word}'"); 
                
-
+a
                    while ($row = mysqli_fetch_array($result)) {
                        echo  $row['ENGLISH'];
                        echo '<br>';
