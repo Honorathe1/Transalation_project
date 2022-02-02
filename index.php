@@ -95,7 +95,7 @@ $conn->close();
            $result = mysqli_query($conn, "SELECT  ENGLISH FROM language
     WHERE ENGLISH LIKE '%{$word}%' OR KINYARWANDA LIKE '%{$word}%' OR FRANCE LIKE '%{$word}' OR KISWAHILE LIKE '%{$word}'"); 
                
-a
+
                    while ($row = mysqli_fetch_array($result)) {
                        echo  $row['ENGLISH'];
                        echo '<br>';
